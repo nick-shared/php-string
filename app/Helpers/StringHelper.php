@@ -6,11 +6,11 @@ class StringHelper
     /**
      * Removes all of a specified subset of characters
      * self::removeAll("abc", "the cat") => "the t"
-     * @param $chars
-     * @param $string
+     * @param string $chars
+     * @param string $string
      * @return mixed
      */
-    public static function removeAll($chars, $string)
+    public static function removeAll(string $chars, string $string)
     {
         $pattern = "/[" . preg_quote($chars, "/") . "]/";
         $output = preg_replace($pattern, "", $string);
@@ -20,11 +20,11 @@ class StringHelper
     /**
      * Removes all EXCEPT a specified subset of characters
      * self::removeAllExcept("abc", "the cat") => "ca"
-     * @param $chars
-     * @param $string
+     * @param string $chars
+     * @param string $string
      * @return mixed
      */
-    public static function removeAllExcept($chars, $string)
+    public static function removeAllExcept(string $chars, string $string)
     {
         $pattern = "/[^" . preg_quote($chars, "/") . "]/";
         $output = preg_replace($pattern, "", $string);
@@ -32,34 +32,29 @@ class StringHelper
     }
 
     /**
-     * The name is pretty self-explanatory
-     * @param $data
+     * @param string $data
      * @return mixed
      */
-    public static function stripAllButDigits($data)
+    public static function stripAllButDigits(string $data)
     {
         return preg_replace("/[^0-9]/", "", $data);
     }
 
     /**
-     * Change to lower case
-     * @param $value
-     * @param null $params
+     * @param string $value
      * @return string
      */
-    public static function lowercase($value, $params = null)
+    public static function lowercase(string $value)
     {
         return strtolower($value);
     }
 
 
     /**
-     * Capitalize the ENTIRE STRING TO CAPS
-     * @param $value
-     * @param null $params
+     * @param string $value
      * @return string
      */
-    public static function uppercase($value, $params = null)
+    public static function uppercase(string $value)
     {
         return strtoupper($value);
     }
