@@ -58,4 +58,21 @@ class StringHelper
     {
         return strtoupper($value);
     }
+
+    /**
+     * Tests if an string is valid xml.
+     * Interesting discussion on checking valid xml docs
+     * https://stackoverflow.com/questions/4554233/how-check-if-a-string-is-a-valid-xml-with-out-displaying-a-warning-in-php
+     * @param $xml
+     * @return bool
+     */
+    public static function isValidXML($xml)
+    {
+        $doc = @simplexml_load_string($xml);
+        if ($doc) {
+            return true; //this is valid
+        } else {
+            return false; //this is not valid
+        }
+    }
 }
